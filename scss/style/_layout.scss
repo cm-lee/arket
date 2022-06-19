@@ -1,0 +1,36 @@
+header{}
+
+.header{position: fixed;top: 0;left: 0;width: 100%;max-width: 1920px;padding: 40px 70px;box-sizing: border-box;
+    &__wrap{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;}
+    &__logo{order: 2;width: 76px;height: 100%;margin: 0;}
+}
+
+.gnb{order: 1;}
+
+.hamburger{
+    &__link{text-decoration: none;}
+    &__box{display: inline-block;width: 40px;}
+    &__line{display: block;width: 100%;height: 2px;background-color: $color-black;
+        & + &{margin-top: 6px;}
+    }
+    &__txt{display: inline-block;margin: 0 0 0 20px;font-family: $font-eng;font-weight: 400;color: $color-black;text-transform: uppercase;}
+}
+
+.nav{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;
+    $this:&;
+
+    &.is-active{background-color: rgba(0, 0, 0, 0.3);z-index: 300;overflow-y: scroll;overflow-x: hidden;
+        #{$this}__wrap{transform: translate3d(0, 0, 0);}
+    }
+
+    &__wrap{position: relative;width: 500px;height: 100%;min-height: auto;transform: translate3d(-1000px, 0, 0);overflow: initial;transition: all 0.5s;}
+    &__inner{padding: 60px 100px;background-color: #fff;}
+    &__close{position: absolute;top: 10px;right: 10px;text-indent: -9999px;overflow: hidden;}
+    &__area{position: relative;width: 40px;height: 40px;
+        &:before, &:after{content: '';position: absolute;top: 0;left: 0;bottom: 0;width: 100%;height: 2px;margin: auto;background-color: $color-black;transform: rotate(45deg);}
+        &:after{transform: rotate(-45deg);}
+    }
+
+}
+
+.toolbox{order: 3;}
